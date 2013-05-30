@@ -1,0 +1,406 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://!!! ENTER YOUR APP ID HERE !!!.appspot.com/_ah/api",
+  "name" : "mobilebackend",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://!!! ENTER YOUR APP ID HERE !!!.appspot.com/_ah/spi",
+    "deadline" : 10.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "google.com",
+  "ownerName" : "google.com",
+  "packagePath" : "cloud.backend.android",
+  "methods" : {
+    "mobilebackend.endpointV1.update" : {
+      "path" : "CloudEntities/update/{kind}",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.google.cloud.backend.spi.EndpointV1.update",
+      "request" : {
+        "parameters" : {
+          "kind" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mobilebackend.endpointV1.deleteAll" : {
+      "path" : "CloudEntities/deleteAll",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.google.cloud.backend.spi.EndpointV1.deleteAll",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mobilebackend.endpointV1.get" : {
+      "path" : "CloudEntities/{kind}/{id}",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.google.cloud.backend.spi.EndpointV1.get",
+      "request" : {
+        "parameters" : {
+          "kind" : {
+            "type" : "string",
+            "required" : true
+          },
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mobilebackend.endpointV1.updateAll" : {
+      "path" : "CloudEntities/updateAll",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.google.cloud.backend.spi.EndpointV1.updateAll",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mobilebackend.endpointV1.delete" : {
+      "path" : "CloudEntities/{kind}/{id}",
+      "httpMethod" : "DELETE",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.google.cloud.backend.spi.EndpointV1.delete",
+      "request" : {
+        "parameters" : {
+          "kind" : {
+            "type" : "string",
+            "required" : true
+          },
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mobilebackend.endpointV1.insertAll" : {
+      "path" : "CloudEntities/insertAll",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.google.cloud.backend.spi.EndpointV1.insertAll",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mobilebackend.endpointV1.getAll" : {
+      "path" : "CloudEntities/getAll",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.google.cloud.backend.spi.EndpointV1.getAll",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mobilebackend.endpointV1.list" : {
+      "path" : "CloudEntities/list",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.google.cloud.backend.spi.EndpointV1.list",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mobilebackend.endpointV1.insert" : {
+      "path" : "CloudEntities/insert/{kind}",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.google.cloud.backend.spi.EndpointV1.insert",
+      "request" : {
+        "parameters" : {
+          "kind" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "EntityDto" : {
+        "id" : "EntityDto",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "createdBy" : {
+            "type" : "string"
+          },
+          "updatedBy" : {
+            "type" : "string"
+          },
+          "kindName" : {
+            "type" : "string"
+          },
+          "properties" : {
+            "type" : "any"
+          },
+          "owner" : {
+            "type" : "string"
+          }
+        }
+      },
+      "User" : {
+        "id" : "User",
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string"
+          },
+          "authDomain" : {
+            "type" : "string"
+          },
+          "userId" : {
+            "type" : "string"
+          },
+          "federatedIdentity" : {
+            "type" : "string"
+          },
+          "nickname" : {
+            "type" : "string"
+          }
+        }
+      },
+      "EntityListDto" : {
+        "id" : "EntityListDto",
+        "type" : "object",
+        "properties" : {
+          "entries" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "EntityDto"
+            }
+          }
+        }
+      },
+      "QueryDto" : {
+        "id" : "QueryDto",
+        "type" : "object",
+        "properties" : {
+          "kindName" : {
+            "type" : "string"
+          },
+          "sortedPropertyName" : {
+            "type" : "string"
+          },
+          "limit" : {
+            "type" : "integer"
+          },
+          "scope" : {
+            "$ref" : "Scope"
+          },
+          "regId" : {
+            "type" : "string"
+          },
+          "queryId" : {
+            "type" : "string"
+          },
+          "subscriptionDurationSec" : {
+            "type" : "integer"
+          },
+          "sortAscending" : {
+            "type" : "boolean"
+          },
+          "filterDto" : {
+            "$ref" : "FilterDto"
+          }
+        }
+      },
+      "Scope" : {
+        "id" : "Scope",
+        "type" : "string",
+        "enum" : [ "PAST", "FUTURE", "FUTURE_AND_PAST" ]
+      },
+      "FilterDto" : {
+        "id" : "FilterDto",
+        "type" : "object",
+        "properties" : {
+          "values" : {
+            "type" : "array",
+            "items" : {
+              "type" : "any"
+            }
+          },
+          "subfilters" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "FilterDto"
+            }
+          },
+          "operator" : {
+            "$ref" : "Op"
+          },
+          "datastoreFilter" : {
+            "$ref" : "Filter"
+          }
+        }
+      },
+      "Op" : {
+        "id" : "Op",
+        "type" : "string",
+        "enum" : [ "EQ", "LT", "LE", "GT", "GE", "NE", "IN", "AND", "OR" ]
+      },
+      "Filter" : {
+        "id" : "Filter",
+        "type" : "object",
+        "properties" : {
+        }
+      }
+    },
+    "methods" : {
+      "com.google.cloud.backend.spi.EndpointV1.update" : {
+        "request" : {
+          "$ref" : "EntityDto"
+        },
+        "response" : {
+          "$ref" : "EntityDto"
+        }
+      },
+      "com.google.cloud.backend.spi.EndpointV1.deleteAll" : {
+        "request" : {
+          "$ref" : "EntityListDto"
+        },
+        "response" : {
+          "$ref" : "EntityListDto"
+        }
+      },
+      "com.google.cloud.backend.spi.EndpointV1.get" : {
+        "response" : {
+          "$ref" : "EntityDto"
+        }
+      },
+      "com.google.cloud.backend.spi.EndpointV1.updateAll" : {
+        "request" : {
+          "$ref" : "EntityListDto"
+        },
+        "response" : {
+          "$ref" : "EntityListDto"
+        }
+      },
+      "com.google.cloud.backend.spi.EndpointV1.delete" : {
+        "response" : {
+          "$ref" : "EntityDto"
+        }
+      },
+      "com.google.cloud.backend.spi.EndpointV1.insertAll" : {
+        "request" : {
+          "$ref" : "EntityListDto"
+        },
+        "response" : {
+          "$ref" : "EntityListDto"
+        }
+      },
+      "com.google.cloud.backend.spi.EndpointV1.getAll" : {
+        "request" : {
+          "$ref" : "EntityListDto"
+        },
+        "response" : {
+          "$ref" : "EntityListDto"
+        }
+      },
+      "com.google.cloud.backend.spi.EndpointV1.list" : {
+        "request" : {
+          "$ref" : "QueryDto"
+        },
+        "response" : {
+          "$ref" : "EntityListDto"
+        }
+      },
+      "com.google.cloud.backend.spi.EndpointV1.insert" : {
+        "request" : {
+          "$ref" : "EntityDto"
+        },
+        "response" : {
+          "$ref" : "EntityDto"
+        }
+      }
+    }
+  }
+}
