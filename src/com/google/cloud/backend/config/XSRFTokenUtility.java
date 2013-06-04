@@ -150,10 +150,22 @@ class XSRFTokenUtility {
     encoder.encode(token, 0, token.length, out);
     return out.toString();
   }
+  
+  private static boolean constantTimeCompare(String a, String b) {
+    if (a.length() != b.length()) {
+      return false;
+    }
 
+    int result = 0;
+    for (int i = 0; i < a.length(); i++) {
+      result |= a.charAt(i) ^ b.charAt(i);
+    }
+    return result == 0;
+  }
+  
   private static boolean verifySignature(String receivedToken, String expectedTokenString)
       throws NoSuchAlgorithmException, IOException {
     String expectedToken = encodeTokenString(expectedTokenString);
-    return expectedToken.equals(receivedToken);
+    return constantTimeCompare(expectedToken, receivedToken);
   }
 }
