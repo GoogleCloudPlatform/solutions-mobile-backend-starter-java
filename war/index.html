@@ -1,6 +1,50 @@
-<html>
-  <head>
-    <script>window.location.replace("admin/configure.jsp");</script>
-  </head>
-  <body/>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hashnote</title>
+  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"/>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css"/>
+</head>
+<body data-ng-cloak>
+  <div class="navbar" ng-controller="NavCtrl">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <ul class="nav">
+          <li data-access-level="{{ accessLevels.anon }}" active-nav>
+            <a href="/">Home</a>
+          </li>
+          <li data-access-level="{{ accessLevels.user }}" active-nav>
+            <a href="/notes">Notes</a>
+          </li>
+        </ul>
+        <div id="userInfo" class="pull-right" data-access-level="{{ accessLevels.user }}">
+          Welcome <strong>{{ user.username }}</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="alert alert-error" ng-bind="error" ng-show="error"></div>
+    <div ng-view></div>
+
+  </div>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-cookies.js"></script>
+  <script src="js/roles.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+  <script src="js/init.js"></script>
+  
+  <!-- Load the gapi -->
+  <script src="//apis.google.com/js/client.js?onload=init"></script>
+</body>
 </html>

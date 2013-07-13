@@ -13,6 +13,11 @@
  */
 package com.google.cloud.backend.spi;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+import java.util.logging.Logger;
+
 import com.google.api.server.spi.response.UnauthorizedException;
 import com.google.appengine.api.NamespaceManager;
 import com.google.appengine.api.datastore.DatastoreService;
@@ -30,10 +35,6 @@ import com.google.cloud.backend.beans.EntityDto;
 import com.google.cloud.backend.config.BackendConfigManager;
 import com.google.cloud.backend.config.BackendConfigManager.AuthMode;
 import com.google.cloud.backend.config.CloudEndpointsConfigManager;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 /**
  * Manager class that provides utility methods for access control on
@@ -238,8 +239,11 @@ public class SecurityChecker {
       throw new IllegalArgumentException("Illegal email: " + email);
     }
 
+    Logger logger = Logger.getLogger("SecurityChecker");
+    
     // try to find it on local cache
     String memKey = USER_ID_PREFIX + email;
+    logger.info("Checking for userid: " + memKey);
     String id = userIdCache.get(memKey);
     if (id != null) {
       return id;

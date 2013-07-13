@@ -1,0 +1,394 @@
+{
+ "kind": "discovery#restDescription",
+ "etag": "\"381e4s_8vUCNPclzPT4yxtto0eA/wscOihln1BgvbuGVPptzZ_8GPKs\"",
+ "discoveryVersion": "v1",
+ "id": "mobilebackend:v1",
+ "name": "mobilebackend",
+ "version": "v1",
+ "description": "This is an API",
+ "ownerDomain": "google.com",
+ "ownerName": "google.com",
+ "packagePath": "cloud.backend.android",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rest",
+ "baseUrl": "https://black-circle-221.appspot.com/_ah/api/mobilebackend/v1/CloudEntities/",
+ "basePath": "/_ah/api/mobilebackend/v1/CloudEntities/",
+ "rootUrl": "https://black-circle-221.appspot.com/_ah/api/",
+ "servicePath": "mobilebackend/v1/CloudEntities/",
+ "batchPath": "batch",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "schemas": {
+  "EntityDto": {
+   "id": "EntityDto",
+   "type": "object",
+   "properties": {
+    "createdAt": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "createdBy": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "kindName": {
+     "type": "string"
+    },
+    "owner": {
+     "type": "string"
+    },
+    "properties": {
+     "type": "any"
+    },
+    "updatedAt": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "updatedBy": {
+     "type": "string"
+    }
+   }
+  },
+  "EntityListDto": {
+   "id": "EntityListDto",
+   "type": "object",
+   "properties": {
+    "entries": {
+     "type": "array",
+     "items": {
+      "$ref": "EntityDto"
+     }
+    }
+   }
+  },
+  "Filter": {
+   "id": "Filter",
+   "type": "object"
+  },
+  "FilterDto": {
+   "id": "FilterDto",
+   "type": "object",
+   "properties": {
+    "datastoreFilter": {
+     "$ref": "Filter"
+    },
+    "operator": {
+     "$ref": "Op"
+    },
+    "subfilters": {
+     "type": "array",
+     "items": {
+      "$ref": "FilterDto"
+     }
+    },
+    "values": {
+     "type": "array",
+     "items": {
+      "type": "any"
+     }
+    }
+   }
+  },
+  "Op": {
+   "id": "Op",
+   "type": "string",
+   "enum": [
+    "AND",
+    "EQ",
+    "GE",
+    "GT",
+    "IN",
+    "LE",
+    "LT",
+    "NE",
+    "OR"
+   ],
+   "enumDescriptions": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  "QueryDto": {
+   "id": "QueryDto",
+   "type": "object",
+   "properties": {
+    "filterDto": {
+     "$ref": "FilterDto"
+    },
+    "kindName": {
+     "type": "string"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "queryId": {
+     "type": "string"
+    },
+    "regId": {
+     "type": "string"
+    },
+    "scope": {
+     "$ref": "Scope"
+    },
+    "sortAscending": {
+     "type": "boolean"
+    },
+    "sortedPropertyName": {
+     "type": "string"
+    },
+    "subscriptionDurationSec": {
+     "type": "integer",
+     "format": "int32"
+    }
+   }
+  },
+  "Scope": {
+   "id": "Scope",
+   "type": "string",
+   "enum": [
+    "FUTURE",
+    "FUTURE_AND_PAST",
+    "PAST"
+   ],
+   "enumDescriptions": [
+    "",
+    "",
+    ""
+   ]
+  }
+ },
+ "resources": {
+  "endpointV1": {
+   "methods": {
+    "delete": {
+     "id": "mobilebackend.endpointV1.delete",
+     "path": "{kind}/{id}",
+     "httpMethod": "DELETE",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "location": "path"
+      },
+      "kind": {
+       "type": "string",
+       "required": true,
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "kind",
+      "id"
+     ],
+     "response": {
+      "$ref": "EntityDto"
+     }
+    },
+    "deleteAll": {
+     "id": "mobilebackend.endpointV1.deleteAll",
+     "path": "deleteAll",
+     "httpMethod": "POST",
+     "request": {
+      "$ref": "EntityListDto"
+     },
+     "response": {
+      "$ref": "EntityListDto"
+     }
+    },
+    "get": {
+     "id": "mobilebackend.endpointV1.get",
+     "path": "{kind}/{id}",
+     "httpMethod": "GET",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "location": "path"
+      },
+      "kind": {
+       "type": "string",
+       "required": true,
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "kind",
+      "id"
+     ],
+     "response": {
+      "$ref": "EntityDto"
+     }
+    },
+    "getAll": {
+     "id": "mobilebackend.endpointV1.getAll",
+     "path": "getAll",
+     "httpMethod": "POST",
+     "request": {
+      "$ref": "EntityListDto"
+     },
+     "response": {
+      "$ref": "EntityListDto"
+     }
+    },
+    "insert": {
+     "id": "mobilebackend.endpointV1.insert",
+     "path": "insert/{kind}",
+     "httpMethod": "POST",
+     "parameters": {
+      "kind": {
+       "type": "string",
+       "required": true,
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "kind"
+     ],
+     "request": {
+      "$ref": "EntityDto"
+     },
+     "response": {
+      "$ref": "EntityDto"
+     }
+    },
+    "insertAll": {
+     "id": "mobilebackend.endpointV1.insertAll",
+     "path": "insertAll",
+     "httpMethod": "POST",
+     "request": {
+      "$ref": "EntityListDto"
+     },
+     "response": {
+      "$ref": "EntityListDto"
+     }
+    },
+    "list": {
+     "id": "mobilebackend.endpointV1.list",
+     "path": "list",
+     "httpMethod": "POST",
+     "request": {
+      "$ref": "QueryDto"
+     },
+     "response": {
+      "$ref": "EntityListDto"
+     }
+    },
+    "patch": {
+     "id": "mobilebackend.endpointV1.patch",
+     "path": "update/{kind}",
+     "httpMethod": "PATCH",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "location": "query"
+      },
+      "kind": {
+       "type": "string",
+       "required": true,
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "kind",
+      "id"
+     ],
+     "request": {
+      "$ref": "EntityDto"
+     },
+     "response": {
+      "$ref": "EntityDto"
+     }
+    },
+    "update": {
+     "id": "mobilebackend.endpointV1.update",
+     "path": "update/{kind}",
+     "httpMethod": "POST",
+     "parameters": {
+      "kind": {
+       "type": "string",
+       "required": true,
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "kind"
+     ],
+     "request": {
+      "$ref": "EntityDto"
+     },
+     "response": {
+      "$ref": "EntityDto"
+     }
+    },
+    "updateAll": {
+     "id": "mobilebackend.endpointV1.updateAll",
+     "path": "updateAll",
+     "httpMethod": "POST",
+     "request": {
+      "$ref": "EntityListDto"
+     },
+     "response": {
+      "$ref": "EntityListDto"
+     }
+    }
+   }
+  }
+ }
+}

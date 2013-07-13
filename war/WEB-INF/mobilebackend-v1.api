@@ -1,12 +1,12 @@
 {
   "extends" : "thirdParty.api",
   "abstract" : false,
-  "root" : "https://!!! ENTER YOUR APP ID HERE !!!.appspot.com/_ah/api",
+  "root" : "https://black-circle-221.appspot.com/_ah/api",
   "name" : "mobilebackend",
   "version" : "v1",
   "defaultVersion" : false,
   "adapter" : {
-    "bns" : "https://!!! ENTER YOUR APP ID HERE !!!.appspot.com/_ah/spi",
+    "bns" : "https://black-circle-221.appspot.com/_ah/spi",
     "deadline" : 10.0,
     "type" : "lily"
   },
