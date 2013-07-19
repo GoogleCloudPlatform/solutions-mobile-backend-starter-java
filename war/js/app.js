@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('hashnote', ['ngCookies'])
-	.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
+var hashnote = angular.module('hashnote', ['ngCookies']);
+
+hashnote.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
 
 		var access = roles.accessLevels;
 
@@ -12,17 +13,17 @@ angular.module('hashnote', ['ngCookies'])
 			});
     	$routeProvider.when('/notes',
 	    	{
-	    		templateUrl: '/partials/notes',
-	    		controller:  'NotesCtrl',
+	    		templateUrl: '/partials/notes.html',
+	    		controller:  'NoteCtrl',
 	    		access:      'user'
 	    	});
     	$routeProvider.when('/404',
 	    	{
-	    		templateUrl: '/partials/404'
+	    		templateUrl: '/partials/404.html'
 	    	});
     	$routeProvider.otherwise({redirectTo: '/'});
 
-    	$locationProvider.html5Mode(true);
+    	$locationProvider.html5Mode(false);
 
     	var interceptor = ['$location', '$q', function($location, $q) {
     		function success(response) {
@@ -49,6 +50,12 @@ angular.module('hashnote', ['ngCookies'])
   }])
   
   .run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {
+  
+	  Auth.signin(true, function() {
+			// success
+			$location.path('/notes').replace();
+			$rootScope.$apply();
+		});
   	
   	$rootScope.$on('$routeChangeStart', function (event, next, current) {
 	  	$rootScope.error = null;

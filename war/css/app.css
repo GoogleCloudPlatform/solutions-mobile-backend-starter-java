@@ -59,3 +59,58 @@ div.home .signin-button:hover {
 div.home .signin-button:active {
   background: url(../img/White-signin_Long_press_44dp.png);
 }
+
+/* /notes */
+.note {
+	padding-top: 18px;
+	background-color: #fff;
+	margin-bottom: 10px;
+	border-bottom: 2px solid #ccc;
+	border-radius: 2px;
+}
+
+div.icon.close-icon {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	width: 10px;
+	height: 10px;
+	background: no-repeat url(../images/close_sprite.png) 0 -20px;
+}
+
+div.icon.close-icon:hover {
+	background: no-repeat url(../images/close_sprite.png) 0 -10px;
+}
+
+div.icon.close-icon:active {
+	background: no-repeat url(../images/close_sprite.png) 0 0;
+}
+
+.section {
+	background-color: #666;
+}
+
+.hashtag-0,
+.mention-1 {
+	color: #09c;
+}
+
+.hashtag-1,
+.mention-2 {
+	color: #93c;
+}
+
+.hashtag-2,
+.mention-3 {
+	color: #690;
+}
+
+.hashtag-3,
+.mention-4 {
+	color: #f80;
+}
+
+.hashtag-4,
+.mention-0 {
+	color: #c00;
+}

@@ -47,5 +47,3 @@ angular.module('hashnote')
 		}
 	};
 });
-
-angular.module('hashnote')
