@@ -16,12 +16,16 @@ hashnote.controller('NoteCtrl', function($scope, Api) {
 	}
 	
 	$scope.addNote = function(content) {
-		Api.insert(function(results) {
+		Api.insert({content: content}, function(results) {
 			$scope.content = '';
 			refreshNotes();
-		},
-		{content: content}
-		);
+		});
+	};
+	
+	$scope.removeNote = function(note) {
+		Api.delete(note, function(results) {
+			refreshNotes();
+		});
 	};
 	
 	refreshNotes();

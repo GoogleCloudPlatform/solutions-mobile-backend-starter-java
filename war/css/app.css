@@ -5,6 +5,7 @@
 
 body {
   font-size: 1em;
+  background: rgba(0,0,0,0.1);
 }
 
 #cover {
@@ -61,29 +62,32 @@ div.home .signin-button:active {
 }
 
 /* /notes */
-.note {
-	padding-top: 18px;
+div.notes div.note {
+	border-radius: 3px;
+	box-sizing: border-box;
 	background-color: #fff;
+	border: 1px solid #d8d8d8;
+	border-bottom-width: 2px;
+	border-top-width: 0;
 	margin-bottom: 10px;
-	border-bottom: 2px solid #ccc;
-	border-radius: 2px;
+	position: relative;
+	padding: 16px;
 }
 
-div.icon.close-icon {
+div.note .close {
 	position: absolute;
-	top: 4px;
-	right: 4px;
-	width: 10px;
-	height: 10px;
-	background: no-repeat url(../images/close_sprite.png) 0 -20px;
+	top: 0;
+	right: 0;
+	padding: 4px;
+	font-size: 22px;
+	line-height: 18px;
+	color: rgba(0,0,0,0.1);
+	cursor: pointer;
 }
 
-div.icon.close-icon:hover {
-	background: no-repeat url(../images/close_sprite.png) 0 -10px;
-}
-
-div.icon.close-icon:active {
-	background: no-repeat url(../images/close_sprite.png) 0 0;
+div.note .close:hover {
+	background-color: rgba(0,0,0,0.05);
+	color: rgba(0,0,0,0.4);
 }
 
 .section {

@@ -36,15 +36,18 @@
 			  			<input id="new-note" ng-model="content" type="text" placeholder="New Note"/>
 			  		</div>
 			  		<div class="large-2 columns">
-			  			<a ng-click="addNote(content)" type="submit" class="button postfix radius">Create</a>
+			  			<a ng-click="addNote(content)" class="button postfix radius">Create</a>
 		  			</div>
 	  		</div>
 	  	</div>
 	  </div>
 	
-	  <ul id="notes" ng-repeat="note in notes">
-	  	<li>{{note.properties.content}}</li>
-	  </ul>
+	  <div class="notes">
+	  	<div class="note" ng-repeat="note in notes">
+		  	<a class="close" ng-click="removeNote(note.id)">&#215;</a>
+	  		<span>{{note.properties.content}}</span>
+	  	</div>
+	  </div>
 	
 	</div>
 	

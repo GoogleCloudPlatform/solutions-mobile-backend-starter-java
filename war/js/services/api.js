@@ -26,7 +26,7 @@ angular.module('hashnote')
 				next(resp.entries);
 			});
 		},
-		insert: function(next, data) {
+		insert: function(data, next) {
 			var defaultData = {
 				kindName: NOTE_TYPE,
 				properties: {}
@@ -50,6 +50,11 @@ angular.module('hashnote')
 				next(resp);
 			}).error(function(error) {
 				next(error);
+			});
+		},
+		delete: function(note, next) {
+			api.delete({'kind': 'private_Note', 'id': note}).execute(function (resp) {
+				next(resp);
 			});
 		}
 	};
