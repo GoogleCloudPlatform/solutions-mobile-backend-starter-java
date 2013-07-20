@@ -7,15 +7,22 @@ hashnote.controller('NoteCtrl', function($scope, Api) {
 	$scope.content = '';
 	$scope.notes = $scope.notes || [];
 	
-	Api.list(function(results) {
-		$scope.$apply(function() {
-			$scope.notes = results;
+	function refreshNotes() {
+		Api.list(function(results) {
+			$scope.$apply(function() {
+				$scope.notes = results;
+			});
 		});
-	});
+	}
 	
 	$scope.addNote = function(content) {
-		api.insert({kindName: 'private_Note', properties: {content: content}}).execute(function (resp) {
+		Api.insert(function(results) {
 			$scope.content = '';
-		})
-	}
+			refreshNotes();
+		},
+		{content: content}
+		);
+	};
+	
+	refreshNotes();
 });
