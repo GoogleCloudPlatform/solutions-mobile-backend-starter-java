@@ -3,9 +3,13 @@
   display: none;
 }
 
+html {
+	background: rgba(0,0,0,0.1);
+}
+
 body {
   font-size: 1em;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0);
 }
 
 #cover {

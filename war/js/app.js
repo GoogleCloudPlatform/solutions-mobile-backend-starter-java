@@ -1,6 +1,6 @@
 'use strict';
 
-var hashnote = angular.module('hashnote', ['ngCookies']);
+var hashnote = angular.module('hashnote', ['ngCookies', 'ngSanitize']);
 
 hashnote.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
 
