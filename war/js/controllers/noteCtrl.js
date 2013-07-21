@@ -8,6 +8,7 @@ hashnote.controller('NoteCtrl', function($scope, Api) {
 	$scope.notes = $scope.notes || [];
 	$scope.hashtags = $scope.hashtags || [];
 	$scope.mentions = $scope.mentions || [];
+	$scope.filter = [];
 	
 	function refreshNotes() {
 		Api.list(function(results) {
@@ -21,10 +22,17 @@ hashnote.controller('NoteCtrl', function($scope, Api) {
 				angular.forEach($scope.notes, function(note, index) {
 					var text = note.properties.content;
 					
+					// Add collections for the hashtags and mentions
+					note.hashtags = [];
+					note.mentions = [];
+					
 					var hashtagPattern = /\B#(?:\[[^\]]+\]|\S+)/g;
 			    	var tag = hashtagPattern.exec(text);
 					while (tag !== null) {
 						var hashtag = tag[0];
+						
+						if (note.hashtags.indexOf(hashtag) === -1)
+							note.hashtags.push(hashtag);
 						
 						if ($scope.hashtags.indexOf(hashtag) === -1)
 							$scope.hashtags.push(hashtag);
@@ -37,6 +45,9 @@ hashnote.controller('NoteCtrl', function($scope, Api) {
 					while (tag !== null) {
 						var mention = tag[0];
 						
+						if (note.mentions.indexOf(mention) === -1)
+							note.mentions.push(mention);
+						
 						if ($scope.mentions.indexOf(mention) === -1)
 							$scope.mentions.push(mention);
 						
@@ -44,6 +55,7 @@ hashnote.controller('NoteCtrl', function($scope, Api) {
 					}
 				});
 
+				$scope.filteredNotes = $scope.notes;
 			});
 		});
 	}
@@ -60,6 +72,18 @@ hashnote.controller('NoteCtrl', function($scope, Api) {
 			refreshNotes();
 		});
 	};
+	
+	$scope.selectFilter = function(name) {
+		if ($scope.filter.indexOf(name) === -1) {
+			$scope.filter.push(name);
+		} else {
+			$scope.filter.splice($scope.filter.indexOf(name), 1);
+		}
+	};
+	
+	$scope.filterClass = function(tag) {
+		return $scope.filter.indexOf(tag) === -1 ? '' : 'selected';
+	}
 	
 	refreshNotes();
 });

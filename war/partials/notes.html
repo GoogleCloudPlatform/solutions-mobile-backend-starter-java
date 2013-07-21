@@ -9,8 +9,8 @@
 	  	<h3>Hashtags</h3>
 	  	<div id="hashtags" class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
 	      <section class="section" ng-repeat="hashtag in hashtags">
-	      	<h5 class="title">
-		  		<a ng-bind-html="hashtag | hashtag"></a>
+	      	<h5 class="title" ng-class="filterClass(hashtag)">
+		  		<a ng-bind-html="hashtag | hashtag" ng-click="selectFilter(hashtag)"></a>
 	      	</h5>
 	      </section>
 	    </div>
@@ -18,8 +18,8 @@
 		<h3>Mentions</h3>
 		<div id="mentions" class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
 		  <section class="section" ng-repeat="mention in mentions">
-	      	<h5 class="title">
-		  		<a ng-bind-html="mention | mention"></a>
+	      	<h5 class="title" ng-class="filterClass(mention)">
+		  		<a ng-bind-html="mention | mention" ng-click="selectFilter(mention)"></a>
 	      	</h5>
 	      </section>
 	    </div>
@@ -47,7 +47,7 @@
 	  </div>
 	
 	  <div class="notes">
-	  	<div class="note" ng-repeat="note in notes">
+	  	<div class="note" ng-repeat="note in notes | tagFilter:filter">
 		  	<a class="close" ng-click="removeNote(note.id)">&#215;</a>
 	  		<span ng-bind-html="note.properties.content | note"></span>
 	  	</div>

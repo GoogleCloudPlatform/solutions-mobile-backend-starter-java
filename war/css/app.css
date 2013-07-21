@@ -98,6 +98,11 @@ div.note .close:hover {
 	background-color: #666;
 }
 
+.section-container.vertical-nav>section>.title.selected, 
+.section-container.vertical-nav>.section>.title.selected {
+	background-color: #ccc;
+}
+
 .hashtag-0,
 .mention-1 {
 	color: #09c;
