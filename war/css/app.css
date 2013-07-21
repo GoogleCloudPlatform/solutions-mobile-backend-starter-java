@@ -1,0 +1,134 @@
+/* app css stylesheet */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none;
+}
+
+html {
+	background: rgba(0,0,0,0.1);
+}
+
+body {
+  font-size: 1em;
+  background: rgba(0,0,0,0);
+}
+
+.top-bar-section ul li.active>a,
+.top-bar-section li a:not(.button):hover {
+  background: rgba(255,255,255,0.1);
+}
+
+#cover {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: white;
+}
+
+#userInfo {
+  float: right;
+  padding: 8px;
+}
+
+.fade-hide-setup, .fade-show-setup {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.fade-hide-setup {
+  opacity: 1;
+}
+
+.fade-hide-setup.fade-hide-start {
+  opacity: 0;
+}
+
+.fade-show-setup {
+  opacity: 0;
+}
+.fade-show-setup.fade-show-start {
+  opacity: 1;
+}
+
+/* /home */
+div.home {
+  text-align: center;
+}
+
+div.home .signin-button {
+  width: 246px;
+  height: 54px;
+  display: block;
+  margin: auto;
+  background: url(../img/White-signin_Long_base_44dp.png);
+}
+div.home .signin-button:hover {
+  background: url(../img/White-signin_Long_hover_44dp.png);
+}
+div.home .signin-button:active {
+  background: url(../img/White-signin_Long_press_44dp.png);
+}
+
+/* /notes */
+div.notes div.note {
+	border-radius: 3px;
+	box-sizing: border-box;
+	background-color: #fff;
+	border: 1px solid #d8d8d8;
+	border-bottom-width: 2px;
+	border-top-width: 0;
+	margin-bottom: 10px;
+	position: relative;
+	padding: 16px;
+}
+
+div.note .close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 4px;
+	font-size: 22px;
+	line-height: 18px;
+	color: rgba(0,0,0,0.1);
+	cursor: pointer;
+}
+
+div.note .close:hover {
+	background-color: rgba(0,0,0,0.05);
+	color: rgba(0,0,0,0.4);
+}
+
+.section {
+	background-color: #666;
+}
+
+.section-container.vertical-nav>section>.title.selected, 
+.section-container.vertical-nav>.section>.title.selected {
+	background-color: #ccc;
+}
+
+.hashtag-0,
+.mention-1 {
+	color: #09c;
+}
+
+.hashtag-1,
+.mention-2 {
+	color: #93c;
+}
+
+.hashtag-2,
+.mention-3 {
+	color: #690;
+}
+
+.hashtag-3,
+.mention-4 {
+	color: #f80;
+}
+
+.hashtag-4,
+.mention-0 {
+	color: #c00;
+}

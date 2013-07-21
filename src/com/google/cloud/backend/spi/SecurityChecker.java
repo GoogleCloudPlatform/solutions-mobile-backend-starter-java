@@ -13,6 +13,11 @@
  */
 package com.google.cloud.backend.spi;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+import java.util.logging.Logger;
+
 import com.google.api.server.spi.response.UnauthorizedException;
 import com.google.appengine.api.NamespaceManager;
 import com.google.appengine.api.datastore.DatastoreService;
@@ -31,10 +36,6 @@ import com.google.cloud.backend.config.BackendConfigManager;
 import com.google.cloud.backend.config.BackendConfigManager.AuthMode;
 import com.google.cloud.backend.config.CloudEndpointsConfigManager;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-
 /**
  * Manager class that provides utility methods for access control on
  * CloudEntities.
@@ -46,15 +47,15 @@ public class SecurityChecker {
 
   public static final String USERS_PROP_USERID = "userId";
 
-  public static final String USER_ID_PREFIX = "USER:";
+  public static final String USER_ID_PREFIX = "USER_";
 
   public static final String USER_ID_FOR_ANONYMOUS = USER_ID_PREFIX + "<anonymous>";
 
   public static final String NAMESPACE_DEFAULT = ""; // empty namespace
 
-  public static final String KIND_PREFIX_PRIVATE = "[private]";
+  public static final String KIND_PREFIX_PRIVATE = "private_";
 
-  public static final String KIND_PREFIX_PUBLIC = "[public]";
+  public static final String KIND_PREFIX_PUBLIC = "public_";
 
   private static final SecurityChecker _instance = new SecurityChecker();
 
@@ -238,8 +239,11 @@ public class SecurityChecker {
       throw new IllegalArgumentException("Illegal email: " + email);
     }
 
+    Logger logger = Logger.getLogger("SecurityChecker");
+    
     // try to find it on local cache
     String memKey = USER_ID_PREFIX + email;
+    logger.info("Checking for userid: " + memKey);
     String id = userIdCache.get(memKey);
     if (id != null) {
       return id;

@@ -97,7 +97,7 @@ public class CrudOperations {
     for (Entity e : allEntities) {
       convertDatePropertyToEpochTime(e, EntityDto.PROP_CREATED_AT);
       convertDatePropertyToEpochTime(e, EntityDto.PROP_UPDATED_AT);
-      prosSearch.match(e, QueryOperations.PROS_SEARCH_DEFAULT_TOPIC);
+     // prosSearch.match(e, QueryOperations.PROS_SEARCH_DEFAULT_TOPIC);
     }
 
     // return a list of the updated EntityDto
