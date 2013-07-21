@@ -12,7 +12,7 @@ angular.module('hashnote')
 
             $scope.location = $location;
             $scope.$watch('location.absUrl()', function(newPath) {
-                if (newPath.indexOf(path, newPath.length - path.length) !== -1) {
+                if (newPath === path) {
                     element.addClass('active');
                 } else {
                     element.removeClass('active');

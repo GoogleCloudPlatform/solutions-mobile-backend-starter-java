@@ -12,6 +12,11 @@ body {
   background: rgba(0,0,0,0);
 }
 
+.top-bar-section ul li.active>a,
+.top-bar-section li a:not(.button):hover {
+  background: rgba(255,255,255,0.1);
+}
+
 #cover {
   position: absolute;
   height: 100%;
