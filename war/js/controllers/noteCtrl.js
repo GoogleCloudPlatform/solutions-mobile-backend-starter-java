@@ -18,25 +18,31 @@ hashnote.controller('NoteCtrl', function($scope, Api) {
 				$scope.hashtags = [];
 				$scope.mentions = [];
 
-		/*		angular.forEach($scope.notes, function(note, index) {
-					// get the hashtags
+				angular.forEach($scope.notes, function(note, index) {
+					var text = note.properties.content;
+					
 					var hashtagPattern = /\B#(?:\[[^\]]+\]|\S+)/g;
-					var tag = hashtagPattern.exec(note.properties.content);
+			    	var tag = hashtagPattern.exec(text);
 					while (tag !== null) {
-						if ($scope.hashtags.indexOf(tag) === -1) {
-							$scope.hashtags.push(tag);
-						}
+						var hashtag = tag[0];
+						
+						if ($scope.hashtags.indexOf(hashtag) === -1)
+							$scope.hashtags.push(hashtag);
+						
+						tag = hashtagPattern.exec(text);
 					}
 					
-					// get the mentions
 					var mentionPattern = /\B@(?:\[[^\]]+\]|\S+)/g;
-					var tag = mentionPattern.exec(note.properties.content);
+			    	var tag = mentionPattern.exec(text);
 					while (tag !== null) {
-						if ($scope.mentions.indexOf(tag) !== -1) {
-							$scope.mentions.push(tag);
-						}
+						var mention = tag[0];
+						
+						if ($scope.mentions.indexOf(mention) === -1)
+							$scope.mentions.push(mention);
+						
+						tag = mentionPattern.exec(text);
 					}
-				});*/
+				});
 
 			});
 		});

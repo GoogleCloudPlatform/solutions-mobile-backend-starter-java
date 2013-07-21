@@ -10,7 +10,7 @@
 	  	<div id="hashtags" class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
 	      <section class="section" ng-repeat="hashtag in hashtags">
 	      	<h5 class="title">
-	      		<a href="#">{{hashtag}}</a>
+		  		<a ng-bind-html="hashtag | hashtag"></a>
 	      	</h5>
 	      </section>
 	    </div>
@@ -19,7 +19,7 @@
 		<div id="mentions" class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
 		  <section class="section" ng-repeat="mention in mentions">
 	      	<h5 class="title">
-	      		<a href="#">{{mention}}</a>
+		  		<a ng-bind-html="mention | mention"></a>
 	      	</h5>
 	      </section>
 	    </div>

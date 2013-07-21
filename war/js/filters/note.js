@@ -39,3 +39,28 @@ angular.module('hashnote').
 		return styled;
     }
   });
+
+angular.module('hashnote').
+  filter('hashtag', function() {
+	  return function(text) {
+		var hash = 0;
+		for (var i = 0; i < text.length; i++) {
+			hash = 31*hash + text.charCodeAt(i);
+		}
+		
+		return '<span class="hashtag-' + hash % 5 + '">' + text + '</span>';
+	  }
+  });
+
+
+angular.module('hashnote').
+  filter('mention', function() {
+	  return function(text) {
+		var hash = 0;
+		for (var i = 0; i < text.length; i++) {
+			hash = 31*hash + text.charCodeAt(i);
+		}
+		
+		return '<span class="mention-' + hash % 5 + '">' + text + '</span>';
+	  }
+  });
