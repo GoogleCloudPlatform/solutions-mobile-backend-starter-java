@@ -320,10 +320,10 @@ class Worker {
           log.warning("Error response packet: " + errorResponse.getMessage());
         }
       }
+    }
 
-      if (invalidTokens.size() > 0) {
-        Utility.enqueueRemovingDeviceTokens(invalidTokens);
-      }
+    if (invalidTokens.size() > 0) {
+      Utility.enqueueRemovingDeviceTokens(invalidTokens);
     }
   }
 
