@@ -44,15 +44,15 @@ public class SecurityChecker {
 
   public static final String USERS_PROP_USERID = "userId";
 
-  public static final String USER_ID_PREFIX = "USER:";
+  public static final String USER_ID_PREFIX = "USER_";
 
   public static final String USER_ID_FOR_ANONYMOUS = USER_ID_PREFIX + "<anonymous>";
 
   public static final String NAMESPACE_DEFAULT = ""; // empty namespace
 
-  public static final String KIND_PREFIX_PRIVATE = "[private]";
+  public static final String KIND_PREFIX_PRIVATE = "private_";
 
-  public static final String KIND_PREFIX_PUBLIC = "[public]";
+  public static final String KIND_PREFIX_PUBLIC = "public_";
 
   private static final SecurityChecker _instance = new SecurityChecker();
 
